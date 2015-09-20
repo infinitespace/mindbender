@@ -34,11 +34,11 @@
 
         </div>
         <div class="col-xs-10 col-xs-offset-2 col-md-9 col-md-offset-3 main">
-            <div class="pull-right">
+            <!-- <div class="pull-right">
 	        <button type="button" class="btn btn-default"
 	            ng-click='openModal({templateUrl:"search/search-debug-modal.html", size:"lg"})'
 	            data-toggle="modal" data-target="#search-debug-modal"><i class="fa fa-cogs"></i></button>
-	    </div>
+	       </div> -->
 
             <!-- error and progress boxes -->
             <div class="alert alert-danger" ng-if="search.error">
@@ -67,7 +67,7 @@
                             search.query.body.from + search.results.hits.hits.length | number
                         }} of {{search.results.hits.total | number}} results
                     </span>
-                    <span ng-init="query = search.query" ng-include="'search/search-query.html'"></span>
+                    <!-- <span ng-init="query = search.query" ng-include="'search/search-query.html'"></span> -->
                     <script type="text/ng-template" id="search/search-query.html">
                         for
                         <span ng-if="query._query_string">
@@ -89,12 +89,8 @@
                         <!-- provenance hyperlink -->
                         <p>
                             <!-- TODO routing param -->
-                            <a ng-href="#/view/{{hit._index | urlEncode
-                                    }}/{{hit._type | urlEncode
-                                    }}?{{hit.parent ? 'parent=' + (hit.parent._id | urlEncode) + '&' : ''
-                                    }}id={{hit._id | urlEncode
-                                    }}"
-                               class="text-muted">{{hit._type}}( {{hit._id}} ) in {{hit._index}}</a>
+                            <a ng-href="{{hit._id}}"
+                               class="text-muted">{{hit._id}}</a>
                         </p>
 
                         <!-- highlights, visualization -->
@@ -112,7 +108,7 @@
                             <p deepdive-visualized-data="hit" search-result="hit"></p>
 
                             <!-- raw data -->
-                            <p show-raw-data="hit"></p>
+                            <!-- <p show-raw-data="hit"></p> -->
                         </blockquote>
                     </li>
                 </ol>

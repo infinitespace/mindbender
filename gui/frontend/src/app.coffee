@@ -15,8 +15,8 @@ angular.module 'mindbender', [
 .run ($rootScope, $interpolate) ->
     # update title and brand
     tmplsDefault = {
-        title: "DeepDive"
-        brand: "DeepDive"
+        title: "Stanford Memex Tool"
+        brand: "Stanford Memex Tool"
         brandIcon: ""
     }
     updateRootScopeFromCurrentRoute = (event, current, previous) ->
